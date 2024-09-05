@@ -6,7 +6,18 @@ res.render("index")
 }
 
 const signup = (req, res)=>{
-    const {firstName , lastName , email , password} = req.body
+    const {email, password} = req.body
+
+    const userInfo = new userModel({
+        email:email, 
+        password:password
+    })
+
+    userInfo.save()
+    .then((data)=>{
+        res.send({message:"user registered successfully"})
+    })
+
     
 }
 

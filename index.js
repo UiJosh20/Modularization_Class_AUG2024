@@ -4,7 +4,9 @@ const PORT = 3000;
 const userRouter = require("./Routes/user.route");
 const PresidentRoute = require("./Routes/admin.route");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
+app.use(cors())
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
